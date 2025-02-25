@@ -1,6 +1,3 @@
-# image size: 4056x3040
-# please ignore the sloppiness, this was written when I was ill and at almost 2am (during the holidays)
-
 from picamzero import Camera
 from astro_pi_orbit import ISS
 import time
@@ -8,11 +5,18 @@ from exif import Image
 from datetime import datetime
 import cv2
 import math
+#assign pi camera to cam
 cam = Camera()
 
 #counter for loop
 i = 0
+
+#metres/pixel
 GSD = 26500
+
+# Parameters for arc length 
+radius_large = 6786000  # Radius of the iss's orbit in meters, from the center of the earth (6,786 km)
+radius_small = 6378000  # Radius of the eath in meters (6,378 km)
 
 """
 The base code is from the example however I have tweaked the GSD to suit our images and also added a function to account for the iss being on an orbit rather than straight line.
@@ -26,10 +30,6 @@ Any outliers are removed, which is normally caused by clouds and causes readings
 I do rely on stats from google for the ISS's orbit height for calculating the arc length, however even if it is off it will be better than not having that calculation there.
 """
 
-
-# Parameters for arc length 
-radius_large = 6786000  # Radius of the iss's orbit in meters, from the center of the earth (6,786 km)
-radius_small = 6378000  # Radius of the eath in meters (6,378 km)
 
 
 #------------------
