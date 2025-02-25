@@ -146,7 +146,7 @@ def calculate(image_names, GSD):
     for i in range(len(image_names)-1):
         image_1 = image_names[i]
         image_2 = image_names[i + 1]
-        result = calculate_speed(image_1, image_2)# Call the function with the image pair
+        result = calculate_speed(image_1, image_2, GSD)# Call the function with the image pair
         if result < 10:
             results.append(result)  # Save the result to the list
         else:
