@@ -166,7 +166,7 @@ for i in range(num_images-1):
     i = i+1
 
 #output for debugging
-results = calculate(image_names)
+results = calculate(image_names, GSD)
 print("Results:", results)
 mean = sum(results)/len(results)
 
